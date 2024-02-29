@@ -8,7 +8,7 @@ const dummyContacts = [
   { id: 4, name: "dd-90", phone: "999-999-9999", email: "ddd9@droids.com" }
 ];
 
-const Conatcts = () => {
+const Contacts = ({ setSelectedContactId }) => {
   const [contacts, setContacts] = useState(dummyContacts);
   console.log("Contacts: ", contacts);
 
@@ -18,15 +18,33 @@ const Conatcts = () => {
     // to fetch the data from an api, we have to use "async()"
     async function fetchContacts() {
       try {
-        const conatctResponse = await fetch("https://jsonplace-univclone.herokuapp.com/users");
+        const conatctResponse = await fetch(
+          "https://jsonplace-univclone.herokuapp.com/users"
+        );
         const contactData = conatctResponse.json();
         console.log(contactData);
+        setContacts(contactData);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
     fetchContacts();
   }, []);
+
+  //   useEffect(() => {
+  //     async function fetchContacts() {
+  //       try {
+  //         const response = await fetch(
+  //           "https://jsonplace-univclone.herokuapp.com/users"
+  //         );
+  //         const result = await response.json();
+  //         setContacts(result);
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //     }
+  //     fetchContacts();
+  //   }, []);
 
   return (
     <>
@@ -54,7 +72,7 @@ const Conatcts = () => {
   );
 };
 
-export default Conatcts;
+export default Contacts;
 
 // import { useState } from "react";
 // import ContactRow from "./ContactRow";
