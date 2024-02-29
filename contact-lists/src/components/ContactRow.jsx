@@ -1,11 +1,11 @@
-import Contact from "./ContactList";
+import ContactList from "./ContactList";
 
 const ContactRow = ({ setSelectedContactId, contact }) => {
   return (
     <>
       <tr
         onClick={() => {
-          setSelectedContactId(Contact.id);
+          setSelectedContactId(contact.id);
         }}
       >
         <td>{contact.name}</td>

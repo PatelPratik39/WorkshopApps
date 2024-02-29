@@ -8,7 +8,7 @@ const dummyContacts = [
   { id: 4, name: "dd-90", phone: "999-999-9999", email: "ddd9@droids.com" }
 ];
 
-const Contacts = ({ setSelectedContactId }) => {
+const ContactList = ({ setSelectedContactId }) => {
   const [contacts, setContacts] = useState(dummyContacts);
   console.log("Contacts: ", contacts);
 
@@ -22,10 +22,10 @@ const Contacts = ({ setSelectedContactId }) => {
           "https://jsonplace-univclone.herokuapp.com/users"
         );
         const contactData = conatctResponse.json();
-        console.log(contactData);
+        // console.log(contactData);
         setContacts(contactData);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
     fetchContacts();
@@ -56,5 +56,5 @@ const Contacts = ({ setSelectedContactId }) => {
   );
 };
 
-export default Contacts;
+export default ContactList;
 
