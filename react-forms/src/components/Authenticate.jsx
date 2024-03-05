@@ -31,7 +31,7 @@ function Authenticate({ token, setUsername}) {
 
   return (
     <div>
-      <h2>Authenticate</h2>
+      <h2>Authenticate using JWT Token</h2>
       {successMessage && <p className="successMessage">{successMessage}</p>}
       {error && <p>{error}</p>}
       <button onClick={handleClick}>Authenticate Token!</button>

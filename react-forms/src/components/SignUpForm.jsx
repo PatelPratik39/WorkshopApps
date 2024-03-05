@@ -41,6 +41,7 @@ function SignUpForm({ setToken }) {
         <input
           type="text"
           id="username"
+          placeholder="Enter Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -48,6 +49,7 @@ function SignUpForm({ setToken }) {
         <input
           type="password"
           id="password"
+          placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         /><br/>
