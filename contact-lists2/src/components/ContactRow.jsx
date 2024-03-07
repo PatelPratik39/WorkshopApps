@@ -1,3 +1,5 @@
+import ContactList from "./ContactList";
+
 const ContactRow = ({contact}) => {
     return (
       <>
