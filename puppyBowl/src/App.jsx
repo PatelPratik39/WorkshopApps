@@ -4,25 +4,21 @@ import AllPlayers from "./components/AllPlayers.jsx";
 import SinglePlayer from "./components/SinglePlayer.jsx";
 import NavBar from "./components/NavBar.jsx";
 import AddPlayer from "./components/AddPlayer.jsx";
-import RemovePlayer from './components/RemovePlayer';
+import RemovePlayer from "./components/RemovePlayer";
+import NoPage from "./components/NoPage.jsx";
 
 
 function App() {
   return (
     <>
-      <div>
-        <NavBar />
-        {/* <div className="header">
-          <h1>🐶 Puppy Bowl 🐶</h1>
-        </div> */}
-      </div>
-
+      <NavBar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<AllPlayers />} />
           <Route path="/players/:id" element={<SinglePlayer />} />
           <Route path="/addPlayer" element={<AddPlayer />} />
-          <Route path="/removePlayer/:id"  element={<RemovePlayer />} />
+          <Route path="/removePlayer/:id" element={<RemovePlayer />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
     </>

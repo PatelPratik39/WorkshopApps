@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const AddPlayer = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         name: '',
         breed: '',
@@ -24,6 +26,19 @@ const AddPlayer = () => {
       <h2 className="header"> Add new Player Form 📝 </h2>
       <div className="container ">
         <form className="form" onSubmit={handleSubmit}>
+          <div class="mb-3">
+            <label for="id" class="form-label">
+              Id :
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              name="id"
+              value={formData.id}
+              onChange={handleChange}
+            />
+          </div>
           <div class="mb-3">
             <label for="name" class="form-label">
               Name :
@@ -64,7 +79,11 @@ const AddPlayer = () => {
             />
           </div>
 
-          <button type="submit" class="btn btn-primary">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onClick={() => navigate("/players/" + formData)}
+          >
             Add Player
           </button>
         </form>

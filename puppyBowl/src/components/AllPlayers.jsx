@@ -52,7 +52,7 @@ const AllPlayers = () => {
                     alt="playerImage"
                     key={`${String(id)}-${name}`}
                      onClick={() => {
-                      navigate(`player/${id}`);
+                      navigate(`players/${id}`);
                     }}
                   />
                   <hr />

@@ -6,8 +6,8 @@ const SinglePlayer = () => {
   return (
     <>
       <h1 className="header"> Single Player Page </h1>
-      <div>
-        <h2>Single Player Id: {id}</h2>
+      <div className="container">
+        <h3 className="h3">Single Player Id: {id}</h3>
         <div className="details">
           <ul>
             <li>Player Id : {id}</li>
