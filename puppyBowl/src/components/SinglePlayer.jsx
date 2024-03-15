@@ -1,42 +1,20 @@
 import { useParams } from "react-router-dom";
 
 const SinglePlayer = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
-
-  const fetchSinglePlayer = async () => {};
+  const { id, name, breed, status } = useParams();
 
   return (
     <>
-      <h1> Single Players Page </h1>
+      <h1 className="header"> Single Player Page </h1>
       <div>
         <h2>Single Player Id: {id}</h2>
-        <div>
-          {players.map((player) => {
-            const { id, name, breed, status, imageUrl } = player;
-            return (
-              <div key={id} className="puppy-player-container">
-                <div className="row">
-                  <div className="col-lg-7">
-                    <ul className="details">
-                      <li>Player Id : {id}</li>
-                      <li>Player Name : {name}</li>
-                      <li>Player breed : {breed}</li>
-                      <li>Player status : {status}</li>
-                    </ul>
-                  </div>
-                  <img
-                    src={imageUrl}
-                    alt="playerImage"
-                    onClick={() => {
-                      navigate(`player/${id}`);
-                    }}
-                  />
-                  <hr />
-                </div>
-              </div>
-            );
-          })}
+        <div className="details">
+          <ul>
+            <li>Player Id : {id}</li>
+            <li>Player Name : {name}</li>
+            <li>Player breed : {breed}</li>
+            <li>Player status : {status}</li>
+          </ul>
         </div>
       </div>
     </>
@@ -44,3 +22,44 @@ const SinglePlayer = () => {
 };
 
 export default SinglePlayer;
+
+// const fetchSinglePlayer = async () => {
+//   try {
+//     const response = await fetch(APIURL + `players/${id}`);
+//     const player = await response.json();
+//     console.log(player);
+//   } catch (err) {
+//     console.error(`Oh no, trouble fetching player #${id}!`, err);
+//   }
+// };
+// fetchSinglePlayer();
+
+{
+  /* <div>
+            {players.map((player) => {
+              const { id, name, breed, status, imageUrl } = player;
+              return (
+                <div key={id} className="puppy-player-container">
+                  <div className="row">
+                    <div className="col-lg-7">
+                      <ul className="details">
+                        <li>Player Id : {id}</li>
+                        <li>Player Name : {name}</li>
+                        <li>Player breed : {breed}</li>
+                        <li>Player status : {status}</li>
+                      </ul>
+                    </div>
+                    <img
+                      src={imageUrl}
+                      alt="playerImage"
+                      onClick={() => {
+                        navigate(`player/${id}`);
+                      }}
+                    />
+                    <hr />
+                  </div>
+                </div>
+              );
+          })}
+        </div> */
+}

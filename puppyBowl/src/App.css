@@ -31,8 +31,20 @@
   text-shadow: 6px 7px 9px red;  
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.btn{
+  margin: auto;
+  box-shadow: 6px 7px 9px grey;  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.form-label{
+  font-weight: 700;
+  text-shadow: 6px 7px 9px grey;
+  font-size: 1.6rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .navHeader{
-  margin: auto 500px;
+  /* margin: auto ; */
+  margin-left: 300px;
   color: white;
   text-shadow: 6px 7px 9px white;  
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

@@ -36,11 +36,20 @@ const NavBar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <a className="nav-link" href="/addPlayer" onClick={() => {navigate}}>
+                <a
+                  className="nav-link"
+                  href="/addPlayer"
+                  onClick={() => {
+                    navigate("/addPlayer");
+                  }}
+                >
                   Add Player
                 </a>
-                <a className="nav-link" href="/singlePlayer/:id">
+                <a className="nav-link" href="/players/:id">
                   Single Player
+                </a>
+                <a className="nav-link" href="/removePlayer/:id">
+                  Remove Player
                 </a>
               </div>
               <h1 className="navHeader"> 🐶 Puppy Bowl 🐶</h1>

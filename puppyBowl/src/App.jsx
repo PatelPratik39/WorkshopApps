@@ -4,6 +4,7 @@ import AllPlayers from "./components/AllPlayers.jsx";
 import SinglePlayer from "./components/SinglePlayer.jsx";
 import NavBar from "./components/NavBar.jsx";
 import AddPlayer from "./components/AddPlayer.jsx";
+import RemovePlayer from './components/RemovePlayer';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           <Route path="/" element={<AllPlayers />} />
           <Route path="/players/:id" element={<SinglePlayer />} />
           <Route path="/addPlayer" element={<AddPlayer />} />
-          {/* <Route path="/addPlayer" element={<AddPlayer />} /> */}
+          <Route path="/removePlayer/:id"  element={<RemovePlayer />} />
         </Routes>
       </BrowserRouter>
     </>

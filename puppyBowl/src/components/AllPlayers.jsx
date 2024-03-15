@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const AllPlayers = () => {
   const navigate = useNavigate();
-  
+
   const [players, setPlayers] = useState([]);
   const [error, setError] = useState(null);
   const [isloading, setIsLoading] = useState(false);
@@ -47,7 +47,14 @@ const AllPlayers = () => {
                       <li>Player status : {status}</li>
                     </ul>
                   </div> */}
-                  <img src={imageUrl} alt="playerImage" onClick={() => {navigate(`player/${id}`)}}/>
+                  <img
+                    src={imageUrl}
+                    alt="playerImage"
+                    key={`${String(id)}-${name}`}
+                     onClick={() => {
+                      navigate(`player/${id}`);
+                    }}
+                  />
                   <hr />
                 </div>
               </div>
