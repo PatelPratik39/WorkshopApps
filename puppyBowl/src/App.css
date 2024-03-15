@@ -105,6 +105,7 @@ nav a:hover {
 	cursor: pointer;
 }
 .details{
+  margin-top: 4rem;
   display: block;
   font-size: 2.0rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -112,6 +113,6 @@ nav a:hover {
   background-color: rgb(242, 242, 103);
   /* box-shadow: 10px 14px 16px rgb(128, 124, 124); */
   /* box-shadow: 10px 14px 16px rgb(6, 86, 236); */
-  -webkit-box-shadow: 0 0 90px blue;
-          box-shadow: 0 0 90px blue;
+  -webkit-box-shadow: 0 0 95px blue;
+          box-shadow: 0 0 95px blue;
 }
