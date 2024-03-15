@@ -1,3 +1,18 @@
+#root {
+  /* max-width: 1280px; */
+  margin: auto;
+  /* padding: 2rem; */
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
 
 /* .navbar{
   padding: 25px;
@@ -7,11 +22,18 @@
 } */
 
 .header{
+  font-size: 3.0rem;
   text-align: center;
-  color: white;
+  color:#242424;
   padding: 30px;
-  background-color: black;
+  /* background-color: black; */
   /* text-shadow: 19px 17px 12px yellow; */
+  text-shadow: 6px 7px 9px red;  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navHeader{
+  margin: auto 500px;
+  color: white;
   text-shadow: 6px 7px 9px white;  
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -23,7 +45,11 @@
 }
 
 .puppy-player-container img {
-	width: 25%;
+	width: 30%;
+  justify-content: right;
+  display: block;
+  margin: auto;
+  box-shadow: 10px 10px 6px rgb(128, 124, 124);
 }
 .errorMessage{
   text-align: center;
@@ -32,4 +58,25 @@
   color: red;
   text-shadow: 6px 7px 13px black;  
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+	display: flex;
+	gap: 1rem;
+}
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+.user-item:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.details{
+  font-size: 2.0rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  background-color: rgb(242, 242, 103);
+  box-shadow: 0 4px 6px rgb(128, 124, 124);
 }

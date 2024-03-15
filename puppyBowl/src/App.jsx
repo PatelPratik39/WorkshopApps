@@ -1,24 +1,29 @@
-// import "./App.css";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AllPlayer from "./components/AllPlayer.jsx";
+import AllPlayers from "./components/AllPlayers.jsx";
 import SinglePlayer from "./components/SinglePlayer.jsx";
-// import NavBar from "./components/NavBar.jsx";
-import "./App.css"
+import NavBar from "./components/NavBar.jsx";
+import AddPlayer from "./components/AddPlayer.jsx";
 
 
 function App() {
   return (
     <>
-      <div className="header">
-        <h1> Puppy Bowl</h1>
+      <div>
+        <NavBar />
+        {/* <div className="header">
+          <h1>🐶 Puppy Bowl 🐶</h1>
+        </div> */}
       </div>
-      <AllPlayer/>
-      {/* <BrowserRouter>
+
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AllPlayer />} />
-          <Route path="/players/:id" element={<SinglePlayer />} /> 
+          <Route path="/" element={<AllPlayers />} />
+          <Route path="/players/:id" element={<SinglePlayer />} />
+          <Route path="/addPlayer" element={<AddPlayer />} />
+          {/* <Route path="/addPlayer" element={<AddPlayer />} /> */}
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }
