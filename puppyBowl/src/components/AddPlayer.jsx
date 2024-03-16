@@ -1,88 +1,101 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddPlayer = () => {
-    const navigate = useNavigate();
+  const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
+  const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({
-        name: '',
-        breed: '',
-        status: ''
+  const [formData, setFormData] = useState({
+    name: "",
+    breed: "",
+    status: ""
+  });
+
+  const addPlayer = async (player) => {
+    try {
+      console.log(player);
+      const response = await fetch(APIURL + "players", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(player)
+      });
+      await response.json();
+      navigate("/");
+    } catch (error) {
+      console.error(
+        "Oops, something went wrong with adding that player!",
+        error
+      );
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    // const  players  = e.target.value;
+    // console.log(players);
+    console.log(name, value);
+    setFormData({
+      ...formData,
+      [name]: value
     });
-    const handleChange = (e) => {
-        const{name, value} = e.target;
-        setFormData({
-            ...formData, [name]: value
-        });
-    }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert( players.id  + "Successfully added in list");
+    console.log(formData);
+  };
   return (
     <>
       <h2 className="header"> Add new Player Form 📝 </h2>
       <div className="container ">
         <form className="form" onSubmit={handleSubmit}>
-          <div class="mb-3">
-            <label for="id" class="form-label">
-              Id :
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="id"
-              name="id"
-              value={formData.id}
-              onChange={handleChange}
-            />
-          </div>
-          <div class="mb-3">
-            <label for="name" class="form-label">
+          <div className="mb-3">
+            <label for="name" className="form-label">
               Name :
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
             />
           </div>
-          <div class="mb-3">
-            <label for="breed" class="form-label">
+          <div className="mb-3">
+            <label for="breed" className="form-label">
               Breed :
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="breed"
               name="breed"
               value={formData.breed}
               onChange={handleChange}
             />
           </div>
-          <div class="mb-3">
-            <label for="status" class="form-label">
+          <div className="mb-3">
+            <label for="status" className="form-label">
               Status :
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="status"
               name="status"
               value={formData.status}
               onChange={handleChange}
             />
           </div>
-
           <button
             type="submit"
-            class="btn btn-primary"
-            onClick={() => navigate("/players/" + formData)}
+            className="btn btn-primary button"
+            onClick={() => addPlayer(formData)}
           >
             Add Player
           </button>
@@ -93,6 +106,10 @@ const AddPlayer = () => {
 };
 
 export default AddPlayer;
+
+{
+  /* onClick={() => navigate("/players/" + formData)} */
+}
 
 // import { useNavigate } from "react-router-dom";
 // import { getAllPlayers } from "../API/index.js";

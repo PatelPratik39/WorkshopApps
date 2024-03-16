@@ -9,11 +9,6 @@ const NavBar = () => {
   return (
     <>
       <div>
-        {/* <nav>
-          <Link to="/">Home</Link>
-          <Link to="/players">AllPlayers</Link>
-          <Link to="/players/:id">Single Player</Link>
-        </nav> */}
 
         <nav
           className="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body"
@@ -45,12 +40,12 @@ const NavBar = () => {
                 >
                   Add Player
                 </a>
-                <a className="nav-link" href="/players/:id">
+                {/* <a className="nav-link" href="">
                   Single Player
-                </a>
-                <a className="nav-link" href="/removePlayer/:id">
+                </a> */}
+                {/* <a className="nav-link" href="/removePlayer/:id">
                   Remove Player
-                </a>
+                </a> */}
               </div>
               <h1 className="navHeader"> 🐶 Puppy Bowl 🐶</h1>
             </div>

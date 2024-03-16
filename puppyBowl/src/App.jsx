@@ -7,7 +7,6 @@ import AddPlayer from "./components/AddPlayer.jsx";
 import RemovePlayer from "./components/RemovePlayer";
 import NoPage from "./components/NoPage.jsx";
 
-
 function App() {
   return (
     <>

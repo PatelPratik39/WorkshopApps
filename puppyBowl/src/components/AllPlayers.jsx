@@ -21,7 +21,6 @@ const AllPlayers = () => {
         setError(error);
       }
     }
-
     getAllPlayersHandler();
   }, []);
 
@@ -51,10 +50,21 @@ const AllPlayers = () => {
                     src={imageUrl}
                     alt="playerImage"
                     key={`${String(id)}-${name}`}
-                     onClick={() => {
+                    onClick={() => {
                       navigate(`players/${id}`);
                     }}
                   />
+                  <div className="container ">
+                    <button className=" btn btn-warning button">
+                      {" "}
+                      Details{" "}
+                    </button>
+                    <button className=" btn btn-primary button">
+                      {" "}
+                      Update{" "}
+                    </button>
+                    <button className=" btn btn-danger button"> Delete </button>
+                  </div>
                   <hr />
                 </div>
               </div>
