@@ -82,7 +82,7 @@ const AddPlayer = () => {
 
   return (
     <>
-      <h2 className="header"> Add new Player Form 📝 </h2>
+      <h2 className="header">📝 Add New Player Form 📝 </h2>
       {/* Success and Failure Messages */}
       {successMessage && (
         <Alert variant="success" onClose={() => setSuccessMessage("")}>
@@ -154,10 +154,6 @@ const AddPlayer = () => {
 };
 
 export default AddPlayer;
-
-
-
-
 
 {
   /* onClick={() => navigate("/players/" + formData)} */

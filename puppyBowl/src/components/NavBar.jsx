@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import AddPlayer from "../components/AddPlayer";
-import AllPlayers from "./AllPlayers";
-import AddPlayer from './AddPlayer';
+// import AllPlayers from "./AllPlayers";
+// import AddPlayer from './AddPlayer';
 
 const NavBar = () => {
   return (
     <>
       <div>
-
         <nav
-          className="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body"
+          className="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body fixed-top"
           data-bs-theme="dark"
         >
           <div className="container-fluid">
@@ -43,7 +42,7 @@ const NavBar = () => {
                 {/* <a className="nav-link" href="">
                   Single Player
                 </a> */}
-                {/* <a className="nav-link" href="/removePlayer/:id">
+                {/* <a className="nav-link" href="/removePlayer">
                   Remove Player
                 </a> */}
               </div>

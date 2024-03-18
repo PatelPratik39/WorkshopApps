@@ -4,6 +4,7 @@ import { getAllPlayers } from "../API/index.js";
 import { useNavigate } from "react-router-dom";
 
 const AllPlayers = () => {
+  const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
   const navigate = useNavigate();
 
   const [players, setPlayers] = useState([]);
@@ -23,6 +24,30 @@ const AllPlayers = () => {
     }
     getAllPlayersHandler();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(
+        APIURL + `/players/${id}`,
+        {
+          method: "DELETE"
+        }
+      );
+      const result = await response.json();
+      if (result.success) {
+        setSuccessMessage("Player deleted successfully!");
+        setErrorMessage("");
+        // Additional logic if needed after successful deletion
+      } else {
+        setErrorMessage("Failed to delete player.");
+        setSuccessMessage("");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("An error occurred while deleting player.");
+      setSuccessMessage("");
+    }
+  };
 
   if (error) {
     return <p className="errorMessage"> Error : {error.message}</p>;
@@ -59,11 +84,14 @@ const AllPlayers = () => {
                         {" "}
                         Details{" "}
                       </button>
-                      <button className=" btn btn-primary button" >
+                      <button className=" btn btn-primary button">
                         {" "}
                         Update{" "}
                       </button>
-                      <button className=" btn btn-danger button">
+                      <button
+                        className=" btn btn-danger button"
+                        onClick={() => {handleDelete(id), navigate('/')}}
+                      >
                         {" "}
                         Delete{" "}
                       </button>

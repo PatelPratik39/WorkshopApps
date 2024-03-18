@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import "../App.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const SinglePlayer = () => {
   const [singlePlayers, setSinglePlayers] = useState("");
-
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
@@ -24,6 +26,27 @@ const SinglePlayer = () => {
     fetchSinglePlayer();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(APIURL + `/players/${id}`, {
+        method: "DELETE"
+      });
+      const result = await response.json();
+      if (result.success) {
+        setSuccessMessage("Player deleted successfully!");
+        setErrorMessage("");
+        // Additional logic if needed after successful deletion
+      } else {
+        setErrorMessage("Failed to delete player.");
+        setSuccessMessage("");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("An error occurred while deleting player.");
+      setSuccessMessage("");
+    }
+  };
+
   return (
     <>
       <h1 className="header"> Single Player Page </h1>
@@ -36,6 +59,16 @@ const SinglePlayer = () => {
             <li>Player breed : {singlePlayers.breed}</li>
             <li>Player status : {singlePlayers.status}</li>
           </ul>
+        </div>
+        <div>
+          <button
+            className=" btn btn-danger button"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </>
