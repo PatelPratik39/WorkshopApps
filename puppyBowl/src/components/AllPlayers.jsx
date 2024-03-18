@@ -31,41 +31,45 @@ const AllPlayers = () => {
   } else {
     return (
       <>
-      <h2 className="header"> Welcome to the Puppy Bowl Page </h2>
+        <h2 className="header">
+          👋🏻 Welcome to All Players of the Puppy Bowl 👋🏻{" "}
+        </h2>
         <div>
           {players.map((player) => {
             const { id, name, breed, status, imageUrl } = player;
             return (
               <div key={id} className="puppy-player-container">
                 <div className="row">
-                  {/* <div className="col-lg-7">
-                    <ul className="details">
-                      <li>Player Id : {id}</li>
-                      <li>Player Name : {name}</li>
-                      <li>Player breed : {breed}</li>
-                      <li>Player status : {status}</li>
-                    </ul>
-                  </div> */}
-                  <img
-                    src={imageUrl}
-                    alt="playerImage"
-                    key={`${String(id)}-${name}`}
-                    onClick={() => {
-                      navigate(`players/${id}`);
-                    }}
-                  />
-                  <div className="container ">
-                    <button className=" btn btn-warning button">
-                      {" "}
-                      Details{" "}
-                    </button>
-                    <button className=" btn btn-primary button">
-                      {" "}
-                      Update{" "}
-                    </button>
-                    <button className=" btn btn-danger button"> Delete </button>
+                  <div className="col-xl-12">
+                    <img
+                      src={imageUrl}
+                      alt="playerImage"
+                      key={`${String(id)}-${name}`}
+                      onClick={() => {
+                        navigate(`players/${id}`);
+                      }}
+                    />
+                    <div className="container-fluid">
+                      <button
+                        className=" btn btn-warning button"
+                        onClick={() => {
+                          navigate(`players/${id}`);
+                        }}
+                      >
+                        {" "}
+                        Details{" "}
+                      </button>
+                      <button className=" btn btn-primary button" >
+                        {" "}
+                        Update{" "}
+                      </button>
+                      <button className=" btn btn-danger button">
+                        {" "}
+                        Delete{" "}
+                      </button>
+                    </div>
+                    <hr />
                   </div>
-                  <hr />
                 </div>
               </div>
             );

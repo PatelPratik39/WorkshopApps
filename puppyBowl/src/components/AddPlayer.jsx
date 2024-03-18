@@ -1,4 +1,8 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+
+import Alert from "react-bootstrap/Alert";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +15,9 @@ const AddPlayer = () => {
     breed: "",
     status: ""
   });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const addPlayer = async (player) => {
     try {
@@ -41,16 +48,53 @@ const AddPlayer = () => {
       ...formData,
       [name]: value
     });
+    if (
+      formData.name === "" ||
+      formData.breed === "" ||
+      formData.status === ""
+    ) {
+      setIsSubmitDisabled(true);
+    } else {
+      setIsSubmitDisabled(false);
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    // Validation for status field
+    if (formData.status !== "field" && formData.status !== "bench") {
+      setErrorMessage('Status field must be either "field" or "bench".');
+      setSuccessMessage("");
+      return; // Stop further processing
+    }
+
+    // Check if all fields are populated
+    if (!formData.name || !formData.breed || !formData.status) {
+      setErrorMessage("Please fill out all fields."); // Set error message if any field is empty
+      setSuccessMessage(""); // Clear any previous success message
+      return; // Stop further processing
+    }
+
+    // If all fields are populated and status field is valid, show success message
+    setSuccessMessage("Form submitted successfully!");
+    setErrorMessage(""); // Clear any previous error message
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert( players.id  + "Successfully added in list");
-    console.log(formData);
-  };
   return (
     <>
       <h2 className="header"> Add new Player Form 📝 </h2>
+      {/* Success and Failure Messages */}
+      {successMessage && (
+        <Alert variant="success" onClose={() => setSuccessMessage("")}>
+          {successMessage}
+        </Alert>
+      )}
+      {errorMessage && (
+        <Alert variant="danger" onClose={() => setErrorMessage("")}>
+          {errorMessage}
+        </Alert>
+      )}
+
       <div className="container ">
         <form className="form" onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -62,6 +106,7 @@ const AddPlayer = () => {
               className="form-control"
               id="name"
               name="name"
+              required
               value={formData.name}
               onChange={handleChange}
             />
@@ -74,6 +119,7 @@ const AddPlayer = () => {
               type="text"
               className="form-control"
               id="breed"
+              required
               name="breed"
               value={formData.breed}
               onChange={handleChange}
@@ -88,6 +134,7 @@ const AddPlayer = () => {
               className="form-control"
               id="status"
               name="status"
+              required
               value={formData.status}
               onChange={handleChange}
             />
@@ -96,6 +143,7 @@ const AddPlayer = () => {
             type="submit"
             className="btn btn-primary button"
             onClick={() => addPlayer(formData)}
+            disabled={isSubmitDisabled}
           >
             Add Player
           </button>
@@ -106,6 +154,10 @@ const AddPlayer = () => {
 };
 
 export default AddPlayer;
+
+
+
+
 
 {
   /* onClick={() => navigate("/players/" + formData)} */
@@ -132,6 +184,24 @@ export default AddPlayer;
 //   } catch (error) {
 //     console.error("Oops, something went wrong with adding that player!", error);
 //   }
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   if (formData.status !== "field" || formData.status !== "bench") {
+//     setErrorMessage('Status field must be either "field" or "bench".');
+//     setSuccessMessage("");
+//     return; // Stop further processing
+//   }
+//   if (formData.name && formData.breed && formData.status) {
+//     setSuccessMessage("Form submitted successfully!");
+//     setErrorMessage(""); // Clear any previous error message
+//   } else {
+//     setErrorMessage("Please fill out all fields."); // Set error message if validation fails
+//     setSuccessMessage(""); // Clear any previous success message
+//   }
+//   // alert( players.id  + "Successfully added in list");
+//   // console.log(formData);
+// };
 
 //   return (
 //     <>

@@ -129,8 +129,9 @@ nav a:hover {
 /* justify-content: space-between; */
 }
 
-.container {
+.container-fluid {
   display: inline-flex;
   justify-content: space-between;
   padding: 2rem;
+
 }
