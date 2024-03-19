@@ -83,8 +83,6 @@ const AddPlayer = () => {
       setSuccessMessage(""); // Clear any previous success message
       return; // Stop further processing
     }
-
-
     // If all fields are populated and status field is valid, show success message
     setSuccessMessage("Form submitted successfully!");
     setErrorMessage(""); // Clear any previous error message
@@ -95,12 +93,18 @@ const AddPlayer = () => {
       <h2 className="header">📝 Add New Player Form 📝 </h2>
       {/* Success and Failure Messages */}
       {successMessage && (
-        <Alert variant="success" onClose={() => setSuccessMessage("")}>
+        <Alert
+          variant="success"
+          onClose={() => setSuccessMessage("Form submitted successfully!")}
+        >
           {successMessage}
         </Alert>
       )}
       {errorMessage && (
-        <Alert variant="danger" onClose={() => setErrorMessage("")}>
+        <Alert
+          variant="danger"
+          onClose={() => setErrorMessage("Please fill out all fields.")}
+        >
           {errorMessage}
         </Alert>
       )}

@@ -1,10 +1,15 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const SinglePlayer = () => {
   const [singlePlayers, setSinglePlayers] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // Hooks section 
   const navigate = useNavigate();
   // const history = useHistory();
   const { id } = useParams();
@@ -33,15 +38,21 @@ const SinglePlayer = () => {
       });
       const result = await response.json();
       if (result.success) {
-        // history.pushState("/");
+
+        // alert("Player deleted successfully!");
+        // navigate("/");
         setSuccessMessage("Player deleted successfully!");
         setErrorMessage("");
+        navigate("/");
+        window.location.reload();
         // Additional logic if needed after successful deletion
       } else {
         setErrorMessage("Failed to delete player.");
         setSuccessMessage("");
+        navigate("/");
+        window.location.reload();
       }
-      navigate.push("/");
+      
       //  window.location.reload();
     } catch (err) {
       console.error(err);
@@ -50,9 +61,26 @@ const SinglePlayer = () => {
     }
   };
 
+
   return (
     <>
       <h1 className="header"> Single Player Page </h1>
+      {successMessage && (
+        <Alert
+          variant="success"
+          onClose={() => setSuccessMessage("Player deleted successfully!")}
+        >
+          {successMessage}
+        </Alert>
+      )}
+      {errorMessage && (
+        <Alert
+          variant="danger"
+          onClose={() => setErrorMessage("Failed to delete player.")}
+        >
+          {errorMessage}
+        </Alert>
+      )}
       <div className="container">
         <h3 className="h3">Single Player # : {id}</h3>
         <div className="details">

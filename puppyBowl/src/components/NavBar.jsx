@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import AddPlayer from "../components/AddPlayer";
 // import AllPlayers from "./AllPlayers";
-// import AddPlayer from './AddPlayer';
+// import UpdateDetails from './AddPlayer';
+// import UpdateDetails from './UpdateDetails';
 
 const NavBar = () => {
   return (
@@ -39,12 +40,6 @@ const NavBar = () => {
                 >
                   Add Player
                 </a>
-                {/* <a className="nav-link" href="">
-                  Single Player
-                </a> */}
-                {/* <a className="nav-link" href="/removePlayer">
-                  Remove Player
-                </a> */}
               </div>
               <h1 className="navHeader"> 🐶 Puppy Bowl 🐶</h1>
             </div>

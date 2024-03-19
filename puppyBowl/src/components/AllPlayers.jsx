@@ -2,9 +2,18 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import { getAllPlayers } from "../API/index.js";
 import { useNavigate } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+
+
 
 
 const AllPlayers = () => {
+
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
   const navigate = useNavigate();
 
@@ -56,14 +65,18 @@ const AllPlayers = () => {
       });
       const result = await response.json();
       if (result.success) {
+        alert("Player deleted successfully!");
         setSuccessMessage("Player deleted successfully!");
         setErrorMessage("");
+        window.location.reload();
         // Additional logic if needed after successful deletion
       } else {
+        alert(setErrorMessage());
         setErrorMessage("Failed to delete player.");
         setSuccessMessage("");
+        window.location.reload();
       }
-      navigate("/");
+      // navigate("/");
       // window.location.reload();
       // history.push("/"); // Navigate to the home page route
     } catch (err) {
