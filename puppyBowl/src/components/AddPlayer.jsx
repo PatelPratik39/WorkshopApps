@@ -10,10 +10,12 @@ const AddPlayer = () => {
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
   const navigate = useNavigate();
 
+
   const [formData, setFormData] = useState({
     name: "",
     breed: "",
-    status: ""
+    status: "",
+    imageUrl: ""
   });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -31,6 +33,7 @@ const AddPlayer = () => {
       });
       await response.json();
       navigate("/");
+      //  window.location.reload();
     } catch (error) {
       console.error(
         "Oops, something went wrong with adding that player!",
@@ -51,6 +54,7 @@ const AddPlayer = () => {
     if (
       formData.name === "" ||
       formData.breed === "" ||
+      formData.status === "" ||
       formData.status === ""
     ) {
       setIsSubmitDisabled(true);
@@ -69,11 +73,17 @@ const AddPlayer = () => {
     }
 
     // Check if all fields are populated
-    if (!formData.name || !formData.breed || !formData.status) {
+    if (
+      !formData.name ||
+      !formData.breed ||
+      !formData.status ||
+      !formData.imageUrl
+    ) {
       setErrorMessage("Please fill out all fields."); // Set error message if any field is empty
       setSuccessMessage(""); // Clear any previous success message
       return; // Stop further processing
     }
+
 
     // If all fields are populated and status field is valid, show success message
     setSuccessMessage("Form submitted successfully!");
@@ -136,6 +146,21 @@ const AddPlayer = () => {
               name="status"
               required
               value={formData.status}
+              onChange={handleChange}
+            />
+          </div>
+          {/* imageURL */}
+          <div className="mb-3">
+            <label htmlFor="imageUrl" className="form-label">
+              Image URL :
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="imageUrl"
+              name="imageUrl"
+              required
+              value={formData.imageUrl}
               onChange={handleChange}
             />
           </div>

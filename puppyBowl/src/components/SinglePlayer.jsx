@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
 import "../App.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const SinglePlayer = () => {
   const [singlePlayers, setSinglePlayers] = useState("");
   const navigate = useNavigate();
+  // const history = useHistory();
   const { id } = useParams();
 
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
@@ -33,6 +33,7 @@ const SinglePlayer = () => {
       });
       const result = await response.json();
       if (result.success) {
+        // history.pushState("/");
         setSuccessMessage("Player deleted successfully!");
         setErrorMessage("");
         // Additional logic if needed after successful deletion
@@ -40,6 +41,8 @@ const SinglePlayer = () => {
         setErrorMessage("Failed to delete player.");
         setSuccessMessage("");
       }
+      navigate.push("/");
+      //  window.location.reload();
     } catch (err) {
       console.error(err);
       setErrorMessage("An error occurred while deleting player.");
@@ -62,15 +65,23 @@ const SinglePlayer = () => {
         </div>
         <div className="container-fluid">
           <button
-            className=" btn btn-danger button"
+            className=" btn btn-warning button btn-lg"
             onClick={() => {
               navigate("/");
+            }}
+          >
+            Back
+          </button>
+          <button
+            className=" btn btn-danger btn-lg button"
+            onClick={() => {
+              handleDelete(id);
             }}
           >
             Delete
           </button>
           <button
-            className=" btn btn-success button"
+            className=" btn btn-success btn-lg button"
             onClick={() => {
               navigate("/");
             }}

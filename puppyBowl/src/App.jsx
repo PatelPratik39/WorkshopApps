@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar.jsx";
 import AddPlayer from "./components/AddPlayer.jsx";
 import RemovePlayer from "./components/RemovePlayer";
 import NoPage from "./components/NoPage.jsx";
+import UpdateDetails from "./components/UpdateDetails.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<AllPlayers />} />
           <Route path="/players/:id" element={<SinglePlayer />} />
           <Route path="/addPlayer" element={<AddPlayer />} />
+          <Route path="/updatePlayer/:id" element={<UpdateDetails />} />
           <Route path="/removePlayer/:id" element={<RemovePlayer />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
