@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const AllPlayers = () => {
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
   const navigate = useNavigate();
+  // const history = useHistory();
 
   const [players, setPlayers] = useState([]);
   const [error, setError] = useState(null);
@@ -25,14 +26,22 @@ const AllPlayers = () => {
     getAllPlayersHandler();
   }, []);
 
+  // update method
+  const handleUpdate = () => {
+    // Implement update logic here (e.g., make an API call to update the record)
+    // This function will be triggered when the Update button is clicked
+    console.log("Update record:", formData);
+    setSuccessMessage("Record updated successfully!");
+    setErrorMessage("");
+  };
+
+  // Delete Method
+
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(
-        APIURL + `/players/${id}`,
-        {
-          method: "DELETE"
-        }
-      );
+      const response = await fetch(APIURL + `/players/${id}`, {
+        method: "DELETE"
+      });
       const result = await response.json();
       if (result.success) {
         setSuccessMessage("Player deleted successfully!");
@@ -42,6 +51,7 @@ const AllPlayers = () => {
         setErrorMessage("Failed to delete player.");
         setSuccessMessage("");
       }
+      // history.push("/"); // Navigate to the home page route
     } catch (err) {
       console.error(err);
       setErrorMessage("An error occurred while deleting player.");
@@ -84,13 +94,16 @@ const AllPlayers = () => {
                         {" "}
                         Details{" "}
                       </button>
-                      <button className=" btn btn-primary button">
+                      <button
+                        className=" btn btn-primary button"
+                        onClick={handleUpdate}
+                      >
                         {" "}
                         Update{" "}
                       </button>
                       <button
                         className=" btn btn-danger button"
-                        onClick={() => {handleDelete(id), navigate('/')}}
+                        onClick={() => handleDelete(id)}
                       >
                         {" "}
                         Delete{" "}

@@ -60,7 +60,7 @@ const SinglePlayer = () => {
             <li>Player status : {singlePlayers.status}</li>
           </ul>
         </div>
-        <div>
+        <div className="container-fluid">
           <button
             className=" btn btn-danger button"
             onClick={() => {
@@ -68,6 +68,14 @@ const SinglePlayer = () => {
             }}
           >
             Delete
+          </button>
+          <button
+            className=" btn btn-success button"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Update
           </button>
         </div>
       </div>
