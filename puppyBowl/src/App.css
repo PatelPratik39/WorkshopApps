@@ -4,7 +4,6 @@
   /* padding: 2rem; */
   text-align: center;
   padding-bottom: 1rem;
-  
 }
 .card {
   padding: 2em;
@@ -23,12 +22,6 @@
   font-weight: bolder;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-/* .navbar{
-  padding: 25px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-} */
 .h3{
   text-align: center;
   color:#242424;
@@ -47,7 +40,7 @@
   padding-bottom: 2%;
   /* background-color: black; */
   /* text-shadow: 19px 17px 12px yellow; */
-  text-shadow: 6px 7px 9px red;  
+  text-shadow: 6px 7px 9px gray;  
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .btn{

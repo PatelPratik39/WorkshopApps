@@ -121,6 +121,7 @@ const AddPlayer = () => {
               id="name"
               name="name"
               required
+              placeholder="Enter Player's Name "
               value={formData.name}
               onChange={handleChange}
             />
@@ -134,6 +135,7 @@ const AddPlayer = () => {
               className="form-control"
               id="breed"
               required
+              placeholder="Enter Player's Breed"
               name="breed"
               value={formData.breed}
               onChange={handleChange}
@@ -149,6 +151,7 @@ const AddPlayer = () => {
               id="status"
               name="status"
               required
+              placeholder="Select only one option : field / bench"
               value={formData.status}
               onChange={handleChange}
             />
@@ -164,13 +167,14 @@ const AddPlayer = () => {
               id="imageUrl"
               name="imageUrl"
               required
+              placeholder="Enter Link/URL of Image"
               value={formData.imageUrl}
               onChange={handleChange}
             />
           </div>
           <button
             type="submit"
-            className="btn btn-primary button"
+            className="btn btn-primary button btn-lg"
             onClick={() => addPlayer(formData)}
             disabled={isSubmitDisabled}
           >

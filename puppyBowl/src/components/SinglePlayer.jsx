@@ -15,6 +15,7 @@ const SinglePlayer = () => {
   const { id } = useParams();
 
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
+
   useEffect(() => {
     const fetchSinglePlayer = async () => {
       try {
@@ -31,6 +32,7 @@ const SinglePlayer = () => {
     fetchSinglePlayer();
   }, []);
 
+  // HanDLE DELETE FUNCTION
   const handleDelete = async (id) => {
     try {
       const response = await fetch(APIURL + `/players/${id}`, {
@@ -65,22 +67,6 @@ const SinglePlayer = () => {
   return (
     <>
       <h1 className="header"> Single Player Page </h1>
-      {successMessage && (
-        <Alert
-          variant="success"
-          onClose={() => setSuccessMessage("Player deleted successfully!")}
-        >
-          {successMessage}
-        </Alert>
-      )}
-      {errorMessage && (
-        <Alert
-          variant="danger"
-          onClose={() => setErrorMessage("Failed to delete player.")}
-        >
-          {errorMessage}
-        </Alert>
-      )}
       <div className="container">
         <h3 className="h3">Single Player # : {id}</h3>
         <div className="details">
