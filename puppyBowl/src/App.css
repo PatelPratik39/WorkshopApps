@@ -129,3 +129,23 @@ nav a:hover {
   padding: 2rem;
 
 }
+
+.searchContainer{
+    margin: 20px auto;
+    width: 500px;
+    position: relative;
+    padding-bottom: 30px;
+    text-shadow: 6px 7px 9px gray;  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.searchInput{
+    border: none;
+    border-bottom: 2px solid #e3e4dc;
+    padding: 10px 20px;
+    margin: auto;
+    width: 100%;
+    outline: none;
+    font-size: 20px;
+    color: #393e46;
+    box-shadow: 0 4px 6px rgb(0, 0, 0.4);
+}

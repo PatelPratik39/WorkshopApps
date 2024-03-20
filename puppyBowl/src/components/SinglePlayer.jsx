@@ -1,7 +1,6 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const SinglePlayer = () => {
@@ -11,7 +10,7 @@ const SinglePlayer = () => {
 
   // Hooks section 
   const navigate = useNavigate();
-  // const history = useHistory();
+
   const { id } = useParams();
 
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
@@ -97,7 +96,7 @@ const SinglePlayer = () => {
           <button
             className=" btn btn-success btn-lg button"
             onClick={() => {
-              navigate("/");
+               navigate("/updatePlayer");
             }}
           >
             Update

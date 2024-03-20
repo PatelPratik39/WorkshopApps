@@ -2,25 +2,19 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import { getAllPlayers } from "../API/index.js";
 import { useNavigate } from "react-router-dom";
-import Alert from "react-bootstrap/Alert";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import Search from "./Search.jsx";
 
 const AllPlayers = () => {
-
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
   const navigate = useNavigate();
-
 
   const [players, setPlayers] = useState([]);
   const [error, setError] = useState(null);
   const [isloading, setIsLoading] = useState(false);
+  // const [searchPlayer, setSearchPlayer] = useState("");
+  // const [successMessage, setSuccessMessage] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     async function getAllPlayersHandler() {
@@ -36,25 +30,6 @@ const AllPlayers = () => {
     getAllPlayersHandler();
   }, []);
 
-  // update method
-  const handleUpdate = async (id) => {
-    try {
-      const response = await fetch(APIURL + `/players/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(updatedPlayer)
-      });
-      const result = await response.json();
-    } catch (error) {
-      console.error(
-        "Oops, something went wrong with updating the player!",
-        error
-      );
-      throw error; // Re-throw the error to handle it outside
-    }
-  };
 
   // Delete Method
 
@@ -66,19 +41,11 @@ const AllPlayers = () => {
       const result = await response.json();
       if (result.success) {
         alert("Player deleted successfully!");
-        setSuccessMessage("Player deleted successfully!");
-        setErrorMessage("");
         window.location.reload();
-        // Additional logic if needed after successful deletion
       } else {
         alert(setErrorMessage());
-        setErrorMessage("Failed to delete player.");
-        setSuccessMessage("");
         window.location.reload();
       }
-      // navigate("/");
-      // window.location.reload();
-      // history.push("/"); // Navigate to the home page route
     } catch (err) {
       console.error(err);
       setErrorMessage("An error occurred while deleting player.");
@@ -93,9 +60,15 @@ const AllPlayers = () => {
   } else {
     return (
       <>
-        <h2 className="header">
-          👋🏻 Welcome to All Players of the Puppy Bowl 👋🏻{" "}
-        </h2>
+        <div>
+          <h2 className="header">
+            👋🏻 Welcome to All Players of the Puppy Bowl 👋🏻{" "}
+          </h2>
+        </div>
+        <Search />
+        {/* <div className="mb-5 container">
+          <input type="text" placeholder="Search for players" />
+        </div> */}
         <div>
           {players.map((player) => {
             const { id, name, breed, status, imageUrl } = player;

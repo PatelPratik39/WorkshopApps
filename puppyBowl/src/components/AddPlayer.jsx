@@ -1,25 +1,24 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-
 import Alert from "react-bootstrap/Alert";
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddPlayer = () => {
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
   const navigate = useNavigate();
-
-
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     breed: "",
     status: "",
     imageUrl: ""
   });
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  // const [successMessage, setSuccessMessage] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
+  // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const addPlayer = async (player) => {
     try {
@@ -46,7 +45,7 @@ const AddPlayer = () => {
     const { name, value } = e.target;
     // const  players  = e.target.value;
     // console.log(players);
-    console.log(name, value);
+    // console.log(name, value);
     setFormData({
       ...formData,
       [name]: value
@@ -91,23 +90,6 @@ const AddPlayer = () => {
   return (
     <>
       <h2 className="header">📝 Add New Player Form 📝 </h2>
-      {/* Success and Failure Messages */}
-      {successMessage && (
-        <Alert
-          variant="success"
-          onClose={() => setSuccessMessage("Form submitted successfully!")}
-        >
-          {successMessage}
-        </Alert>
-      )}
-      {errorMessage && (
-        <Alert
-          variant="danger"
-          onClose={() => setErrorMessage("Please fill out all fields.")}
-        >
-          {errorMessage}
-        </Alert>
-      )}
 
       <div className="container ">
         <form className="form" onSubmit={handleSubmit}>
@@ -261,3 +243,25 @@ export default AddPlayer;
 // };
 
 // export default AddPlayer;
+
+{
+  /* Success and Failure Messages */
+}
+{
+  /* {successMessage && (
+        <Alert
+          variant="success"
+          onClose={() => setSuccessMessage("Form submitted successfully!")}
+        >
+          {successMessage}
+        </Alert>
+      )}
+      {errorMessage && (
+        <Alert
+          variant="danger"
+          onClose={() => setErrorMessage("Please fill out all fields.")}
+        >
+          {errorMessage}
+        </Alert>
+      )} */
+}
