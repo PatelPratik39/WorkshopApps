@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdatePlayer = () => {
-  const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
+  const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT";
   const navigate = useNavigate();
   const { id } = useParams();
   const [players, setPlayers] = useState({
@@ -39,8 +39,10 @@ const UpdatePlayer = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(players)
+        
       });
       if (!response.ok) {
+        console.log(response);
         throw new Error("Failed to update player");
       }
       navigate(`/players/${id}`);
@@ -48,6 +50,7 @@ const UpdatePlayer = () => {
       console.error("Error updating player:", error);
       alert(error);
       navigate("/");
+      // navigate(`/players/${id}`);
     }
   };
 

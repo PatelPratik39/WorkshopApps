@@ -96,7 +96,7 @@ const SinglePlayer = () => {
           <button
             className=" btn btn-success btn-lg button"
             onClick={() => {
-               navigate("/updatePlayer");
+               navigate(`/updatePlayer/${id}`);
             }}
           >
             Update

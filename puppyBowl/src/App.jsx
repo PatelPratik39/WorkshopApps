@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<AllPlayers />} />
           <Route path="/players/:id" element={<SinglePlayer />} />
           <Route path="/addPlayer" element={<AddPlayer />} />
-          <Route path="/updatePlayer" element={<UpdatePlayer />} />
+          <Route path="/updatePlayer/:id" element={<UpdatePlayer />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
