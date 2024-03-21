@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import Alert from "react-bootstrap/Alert";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,9 +15,6 @@ const AddPlayer = () => {
     status: "",
     imageUrl: ""
   });
-  // const [successMessage, setSuccessMessage] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
-  // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const addPlayer = async (player) => {
     try {
@@ -169,99 +165,3 @@ const AddPlayer = () => {
 };
 
 export default AddPlayer;
-
-{
-  /* onClick={() => navigate("/players/" + formData)} */
-}
-
-// import { useNavigate } from "react-router-dom";
-// import { getAllPlayers } from "../API/index.js";
-
-// const AddPlayer = async () => {
-//   const navigate = useNavigate();
-
-//   try {
-//     const response = await fetch(APIURL + "players", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify({ name: newPlayerName, team: newPlayerTeam })
-//     });
-//     await response.json();
-//     fetchAllPlayers();
-//     setNewPlayerName("");
-//     setNewPlayerTeam("");
-//   } catch (error) {
-//     console.error("Oops, something went wrong with adding that player!", error);
-//   }
-
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   if (formData.status !== "field" || formData.status !== "bench") {
-//     setErrorMessage('Status field must be either "field" or "bench".');
-//     setSuccessMessage("");
-//     return; // Stop further processing
-//   }
-//   if (formData.name && formData.breed && formData.status) {
-//     setSuccessMessage("Form submitted successfully!");
-//     setErrorMessage(""); // Clear any previous error message
-//   } else {
-//     setErrorMessage("Please fill out all fields."); // Set error message if validation fails
-//     setSuccessMessage(""); // Clear any previous success message
-//   }
-//   // alert( players.id  + "Successfully added in list");
-//   // console.log(formData);
-// };
-
-//   return (
-//     <>
-//       <h2> New Players Form Page</h2>
-//       <div>
-//         <input
-//           type="text"
-//           placeholder="Player Name"
-//           value={newPlayerName}
-//           onChange={(e) => setNewPlayerName(e.target.value)}
-//         />
-//         <input
-//           type="text"
-//           placeholder="Team Name"
-//           value={newPlayerTeam}
-//           onChange={(e) => setNewPlayerTeam(e.target.value)}
-//         />
-//         <button
-//           onClick={() => {
-//             navigate("/addPlayer");
-//           }}
-//         >
-//           Add Player
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default AddPlayer;
-
-{
-  /* Success and Failure Messages */
-}
-{
-  /* {successMessage && (
-        <Alert
-          variant="success"
-          onClose={() => setSuccessMessage("Form submitted successfully!")}
-        >
-          {successMessage}
-        </Alert>
-      )}
-      {errorMessage && (
-        <Alert
-          variant="danger"
-          onClose={() => setErrorMessage("Please fill out all fields.")}
-        >
-          {errorMessage}
-        </Alert>
-      )} */
-}

@@ -5,10 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const SinglePlayer = () => {
   const [singlePlayers, setSinglePlayers] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  // Hooks section 
+  // Hooks section
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -39,29 +37,23 @@ const SinglePlayer = () => {
       });
       const result = await response.json();
       if (result.success) {
-
-        // alert("Player deleted successfully!");
+        alert("Player deleted successfully!");
         // navigate("/");
-        setSuccessMessage("Player deleted successfully!");
-        setErrorMessage("");
         navigate("/");
         window.location.reload();
         // Additional logic if needed after successful deletion
       } else {
-        setErrorMessage("Failed to delete player.");
-        setSuccessMessage("");
+        alert("Having Difficulty to deleted Player !");
+
         navigate("/");
         window.location.reload();
       }
-      
       //  window.location.reload();
     } catch (err) {
       console.error(err);
-      setErrorMessage("An error occurred while deleting player.");
-      setSuccessMessage("");
+      alert("Having Difficulty to deleted Player !");
     }
   };
-
 
   return (
     <>
@@ -96,7 +88,7 @@ const SinglePlayer = () => {
           <button
             className=" btn btn-success btn-lg button"
             onClick={() => {
-               navigate(`/updatePlayer/${id}`);
+              navigate(`/updatePlayer/${id}`);
             }}
           >
             Update
@@ -108,44 +100,3 @@ const SinglePlayer = () => {
 };
 
 export default SinglePlayer;
-
-// const fetchSinglePlayer = async () => {
-//   try {
-//     const response = await fetch(APIURL + `players/${id}`);
-//     const player = await response.json();
-//     console.log(player);
-//   } catch (err) {
-//     console.error(`Oh no, trouble fetching player #${id}!`, err);
-//   }
-// };
-// fetchSinglePlayer();
-
-// {
-/* <div>
-            {players.map((player) => {
-              const { id, name, breed, status, imageUrl } = player;
-              return (
-                <div key={id} className="puppy-player-container">
-                  <div className="row">
-                    <div className="col-lg-7">
-                      <ul className="details">
-                        <li>Player Id : {id}</li>
-                        <li>Player Name : {name}</li>
-                        <li>Player breed : {breed}</li>
-                        <li>Player status : {status}</li>
-                      </ul>
-                    </div>
-                    <img
-                      src={imageUrl}
-                      alt="playerImage"
-                      onClick={() => {
-                        navigate(`player/${id}`);
-                      }}
-                    />
-                    <hr />
-                  </div>
-                </div>
-              );
-          })}
-        </div> */
-// }

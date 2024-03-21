@@ -13,9 +13,6 @@ const AllPlayers = () => {
   const [error, setError] = useState(null);
   const [isloading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  // const [searchPlayer, setSearchPlayer] = useState("");
-  // const [successMessage, setSuccessMessage] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     async function getAllPlayersHandler() {
@@ -56,8 +53,7 @@ const AllPlayers = () => {
       }
     } catch (err) {
       console.error(err);
-      setErrorMessage("An error occurred while deleting player.");
-      setSuccessMessage("");
+      alert("Having Difficulty to deleted Player !", Error);
     }
   };
 
