@@ -36,8 +36,9 @@
   font-size: 3.0rem;
   text-align: center;
   color:#242424;
-  padding-top: 8%;
+  padding-top: 10%;
   padding-bottom: 2%;
+  padding: auto;
   /* background-color: black; */
   /* text-shadow: 19px 17px 12px yellow; */
   text-shadow: 6px 7px 9px gray;  
@@ -57,7 +58,7 @@
 }
 .navHeader{
   margin: auto ;
-  /* margin-left: 300px; */
+  margin-left: auto;
   color: white;
   text-shadow: 6px 7px 9px white;  
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -100,6 +101,7 @@ nav a:hover {
 	cursor: pointer;
 }
 .details{
+  list-style: none;
   margin-top: 4rem;
   display: block;
   align-items: center;
@@ -139,13 +141,39 @@ nav a:hover {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .searchInput{
+  display: flex;
     border: none;
     border-bottom: 2px solid #e3e4dc;
     padding: 10px 20px;
     margin: auto;
-    width: 100%;
+    width: 40%;
     outline: none;
     font-size: 20px;
     color: #393e46;
     box-shadow: 0 4px 6px rgb(0, 0, 0.4);
+}
+
+/* .searchInput{
+  display: block;
+  size: 500px;
+  margin: auto;
+  padding-bottom:30px ;
+} */
+.imageHeader{
+  text-align: center;
+  padding-top: 5%;
+  text-decoration: underline;
+  font-size: 25px;
+  color:red;
+  font-weight: bolder;
+  text-shadow: 6px 7px 9px gray;  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+li{
+  list-style: none;
+}
+.h2Header{
+  text-align: center;
+  text-shadow: 6px 7px 9px gray;  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }

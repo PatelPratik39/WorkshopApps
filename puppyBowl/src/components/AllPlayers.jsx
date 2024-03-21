@@ -3,7 +3,7 @@ import "../App.css";
 import { getAllPlayers } from "../API/index.js";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Search from "./Search.jsx";
+
 
 const AllPlayers = () => {
   const APIURL = "https://fsa-puppy-bowl.herokuapp.com/api/2311-FTB-MT-WEB-PT/";
@@ -12,6 +12,7 @@ const AllPlayers = () => {
   const [players, setPlayers] = useState([]);
   const [error, setError] = useState(null);
   const [isloading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   // const [searchPlayer, setSearchPlayer] = useState("");
   // const [successMessage, setSuccessMessage] = useState("");
   // const [errorMessage, setErrorMessage] = useState("");
@@ -30,6 +31,13 @@ const AllPlayers = () => {
     getAllPlayersHandler();
   }, []);
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredPlayers = players.filter((player) =>
+    player.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Delete Method
 
@@ -65,13 +73,20 @@ const AllPlayers = () => {
             👋🏻 Welcome to All Players of the Puppy Bowl 👋🏻{" "}
           </h2>
         </div>
-        <Search />
-        {/* <div className="mb-5 container">
-          <input type="text" placeholder="Search for players" />
-        </div> */}
         <div>
-          {players.map((player) => {
-            const { id, name, breed, status, imageUrl } = player;
+          <div className="mb-4 container">
+            <h2 className="h2Header">Search your Player 🔎 : </h2>
+            <input
+              type="text"
+              className="searchInput"
+              placeholder="Search your Player"
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+          </div>
+          <hr />
+          {filteredPlayers.map((player) => {
+            const { id, name, imageUrl } = player;
             return (
               <div key={id} className="puppy-player-container">
                 <div className="row">
@@ -84,6 +99,11 @@ const AllPlayers = () => {
                         navigate(`players/${id}`);
                       }}
                     />
+                    <div className="imageHeader">
+                      <ul>
+                        <li key={id}>Name: {name}</li>
+                      </ul>
+                    </div>
                     <div className="container-fluid">
                       <button
                         className=" btn btn-lg btn-warning button"

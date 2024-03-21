@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const NavBar = () => {
@@ -35,15 +35,6 @@ const NavBar = () => {
                   }}
                 >
                   Add Player
-                </a>
-                <a
-                  className="nav-link"
-                  href="/updatePlayer"
-                  onClick={() => {
-                    navigate("/updatePlayer");
-                  }}
-                >
-                  Update Player
                 </a>
               </div>
               <h1 className="navHeader"> 🐶 Puppy Bowl 🐶</h1>
